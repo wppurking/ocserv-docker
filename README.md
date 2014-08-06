@@ -9,7 +9,7 @@
 在安装好 Docker 1.0+ 并且正常启动 Docker 后:
 
 * `cd ~;git clone https://github.com/wppurking/ocserv-docker.git` : 将当前 repo 下载, 拥有可调整的 ocserv.conf 配置文件以及 ocpasswd 用户密码文件
-* `docker run -d --privileged -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:6379/udp -p 443:6379/tcp wppurking/ocserv`  :  Box 自动下载. 需要在 Docker 的 privileged 权限下, 打开 443 端口映射(box 内为 6379 端口是因为我构建这个的服务器上 443 端口被其他服务占用着, 历史遗留原因)
+* `docker run -d --privileged -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/udp -p 443:443/tcp wppurking/ocserv`  :  Box 自动下载. ocserv 的一些功能需要 Docker 在 privileged 权限下处理
 * `docker ps -aq | xargs docker logs` : 检查是否正常运行. 
 
 ```
