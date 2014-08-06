@@ -8,5 +8,5 @@
 ## 使用
 在安装好 Docker 1.0+ 并且正常启动 Docker 后:
 
-* docker pull wppurking/ocserv : 从 Docker Hub 中拽下 ocserv box
-* docker run --privileged -d -p 443:6379/tcp -p 443:6379/udp wppurking/ocserv  :  需要在 Docker 的 privileged 权限下, 打开 443 端口映射(box 内为 6379 端口是因为我构建这个的服务器上 443 端口被其他服务占用着, 历史遗留原因)
+* `docker pull wppurking/ocserv` : 从 Docker Hub 中拽下 ocserv box
+* `docker run --privileged -d -p 443:6379/tcp -p 443:6379/udp wppurking/ocserv`  :  需要在 Docker 的 privileged 权限下, 打开 443 端口映射(box 内为 6379 端口是因为我构建这个的服务器上 443 端口被其他服务占用着, 历史遗留原因)
