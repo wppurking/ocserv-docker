@@ -35,7 +35,7 @@ ocserv[13]: sec-mod: sec-mod initialized (socket: /var/run/ocserv-socket.12)
 ## 信息
 * Box Size: 421.5 MB   (拿空间换时间, 国外网络贼快, Docker 下载无压力)
 * 基础 Box: ubuntu:latest   (278.6 MB)
-* 测试过的环境:  Linode 1G Ubuntu 12.04 LTS, Vultr 768MB Ubuntu 14.04 LTS
+* 测试过的环境:  Linode 1G Ubuntu 14.04 LTS, Vultr 768MB Ubuntu 14.04 LTS
 
 ## Refs
 * [ocserv 0.8.2 Manual](http://www.infradead.org/ocserv/manual.html)
