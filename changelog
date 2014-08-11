@@ -1,0 +1,11 @@
+2014.08.11
+ * 新增加 wppurking/ocserv-base-lib(base-lib), 仅仅将 ocserv 所需要的 lib 文件安装(依赖 Ubuntu:latest);
+ * 将生成 certs 所需要的 teamplate(Country 啊, Domain 啊等等信息) 抽取出来
+ * 修改 wppurking/ocserv 的 Dockerfile, 通过自动构建代替原来的手动构建
+ * 自动下载源代码进行编译安装 ocserv, 方便 ocserv 升级重新构建
+ * 每一次自动构建通过抽取出来的 template file 生成新 certs 
+
+2014.08.06
+ * 初始化这个项目, 使用手工创建了 wppurking/ocserv Box 
+ * 剥离出 ocserv 的配置文件 
+ * 达到第一个可以使用 docker run 的版本

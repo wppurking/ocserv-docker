@@ -28,13 +28,19 @@ ocserv[13]: sec-mod: sec-mod initialized (socket: /var/run/ocserv-socket.12)
 * 因为我们自己生成的 CA 证书是没有权威组织认证的, 所以 AnyConnect 需要接受这些 "不信任的 VPN" :P
 
 
-## 自定义证书, 密钥, 用户名
-因为是构建一个独立的 box 进行分发, 方便快速部署一个 ocserv, 所以将证书, 密钥, 用户都集成在里面了, 此刻方便使用. 如果对于有担心的, 可以 `docker run -t -i wppurking/ocserv bash` 进入到 box 中使用 ocpasswd 和 certtool 重新进行处理, 具体操作步骤参考 [[原创]linode vps debian7.5安装配置ocserv(OpenConnect server)](http://luoqkk.com/linode-vps-debian-installation-and-configuration-ocserv-openconnect-server.html)
+## 自定义证书, 密钥
+因为是构建一个独立的 box 进行分发, 方便快速部署一个 ocserv, 所以将证书, 密钥, 用户都集成在里面了, 此刻方便使用. 如果对于有担心的, 可以 `docker run -t -i wppurking/ocserv bash` 进入到 box 中使用 `certtool` 重新进行处理, 具体操作步骤参考 [[原创]linode vps debian7.5安装配置ocserv(OpenConnect server)](http://luoqkk.com/linode-vps-debian-installation-and-configuration-ocserv-openconnect-server.html)
+
+证书是在 Docker Build 的过程中自动生成的, 其生成的目的地为 `/opt/certs`
+
+
+## 用户名
+用户名以及密码信息作为配置文件没有放在 Box 中, 而是通过 Volume 在运行时挂在进去. 所以可以通过 `ocpasswd` 重新生成自己需要的用户名密码, 修改 ocserv/ocpasswd 中的内容即可.
 
 
 ## 信息
-* Box Size: 421.5 MB   (拿空间换时间, 国外网络贼快, Docker 下载无压力)
-* 基础 Box: ubuntu:latest   (278.6 MB)
+* Box Size: 384.6 MB   (拿空间换时间, 国外网络快)
+* 基础 Box: ubuntu:latest   (192.7 MB)
 * 测试过的环境:  Linode 1G Ubuntu 14.04 LTS, Vultr 768MB Ubuntu 14.04 LTS
 
 ## Refs
