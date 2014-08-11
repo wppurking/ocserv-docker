@@ -1,6 +1,6 @@
 ## 用途
 
-因为安装一个 Open Connect 的步骤实在太麻烦了, 特别对于新手, 所以特意参考了 jpetazzo 的 [dockvpn](https://github.com/jpetazzo/dockvpn) 弄了一个 ocserv 的. 不过现在比较简单, 基本上是纯手工制作的 Docker Box, 接下来会对 Box 进行一些调整, 构建一个仅仅处理 ocserv 基础依赖的 Docker Box 让大家可以自行加工. 有啥问题可以直接 [@wyatt_pan](https://twitter.com/wyatt_pan)
+因为安装一个 Open Connect 的步骤实在太麻烦了, 特别对于新手, 所以特意参考了 jpetazzo 的 [dockvpn](https://github.com/jpetazzo/dockvpn) 弄了一个 ocserv 的. 有啥问题可以直接 [@wyatt_pan](https://twitter.com/wyatt_pan)
 
 
 ## 简单部署
@@ -49,3 +49,8 @@ ocserv[13]: sec-mod: sec-mod initialized (socket: /var/run/ocserv-socket.12)
 * [Install Cisco AnyConnect Server on a Generic Linux Server](https://izhaom.in/2014/08/install-cisco-anyconnect-server-on-a-generic-linux-server/)
 * [AnyConnect 带来 iPhone 上的新生活](http://imkevin.me/post/80157872840/anyconnect-iphone)
 * [Install Ocserv on CentOS 6.5](https://botu.me/install-ocserv-on-centos6/)
+
+
+## 问题
+1. 在某一个台湾的 VPS 上 Docker 无法正常运行, 报告: `/lib/x86_64-linux-gnu/libc.so.6 invalid EFL header` 我暂时不知道如何解决 - -|| 
+2. 在某台 Linux Kernal 为 `Linux xxxx 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux` 的服务器上, 无论 Docker run 哪一个 Box 都无法正常运行. Docker 的问题我现在还无能无力啊... [错误信息](https://gist.github.com/wppurking/0b81adefd050ace97332)
