@@ -4,7 +4,13 @@
 # Run the OpenConnect server normally
 #
 
+# open ipv4 ip forward
+sysctl -w net.ipv4.ip_forward=1 && sysctl -p
+
+# open iptables nat
 iptables -t nat -A POSTROUTING -j MASQUERADE
 iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu 
 
-ocserv -c /etc/ocserv/ocserv.conf -f -d 1
+# run it
+#ocserv -c /etc/ocserv/ocserv.conf -f -d 1
+ocserv -c /etc/ocserv/ocserv.conf -f
