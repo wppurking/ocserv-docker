@@ -24,7 +24,7 @@ ocserv[13]: sec-mod: sec-mod initialized (socket: /var/run/ocserv-socket.12)
 * 初始化好的两个账户:  wyatt:616  holly:525
 * 如果主服务器上开启了 iptables, 一定要记得将 443 端口的 tcp 与 udp 都开放
 * 已经做了其能够处理的下发路由数量 (ocserv.conf 中, 感谢: kevinzhow 的 [route.sh](https://gist.github.com/kevinzhow/9661732) 和 [ip_cook.rb](https://gist.github.com/kevinzhow/9661753) )
-* 接下来 就是 AnyConnect 的客户端了. [Win, Mac, Linux](https://www.haskins.yale.edu/docdepot/published/WG/show.php?q=SEFTSzAx-58c63f59) (Cisco 官方需要注册...), [iOS](https://itunes.apple.com/us/app/cisco-anyconnect/id392790924?mt=8), [Android](https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf&hl=en)
+* 接下来 就是 AnyConnect 的客户端了. Win, Mac, Linux [Link1](https://www.haskins.yale.edu/docdepot/published/WG/show.php?q=SEFTSzAx-58c63f59) (Cisco 官方需要注册...), [iOS](https://itunes.apple.com/us/app/cisco-anyconnect/id392790924?mt=8), [Android](https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf&hl=en)
 * 因为我们自己生成的 CA 证书是没有权威组织认证的, 所以 AnyConnect 需要接受这些 "不信任的 VPN" :P
 
 
@@ -35,7 +35,7 @@ ocserv[13]: sec-mod: sec-mod initialized (socket: /var/run/ocserv-socket.12)
 ## 信息
 * Box Size: 421.5 MB   (拿空间换时间, 国外网络贼快, Docker 下载无压力)
 * 基础 Box: ubuntu:latest   (278.6 MB)
-* 测试过的环境:  Linode 1G Ubuntu 12.04 LTS, Vultr 768MB Ubuntu 14.04 LTS
+* 测试过的环境:  Linode 1G Ubuntu 14.04 LTS, Vultr 768MB Ubuntu 14.04 LTS
 
 ## Refs
 * [ocserv 0.8.2 Manual](http://www.infradead.org/ocserv/manual.html)
