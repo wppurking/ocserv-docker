@@ -5,6 +5,8 @@ RUN apt-get update
 RUN apt-get install build-essential libwrap0-dev libpam0g-dev libdbus-1-dev libreadline-dev libnl-route-3-dev libprotobuf-c0-dev libpcl1-dev libopts25-dev autogen libgnutls28 libgnutls28-dev libseccomp-dev iptables wget gnutls-bin -y
 
 RUN cd /root && wget ftp://ftp.infradead.org/pub/ocserv/ocserv-0.8.2.tar.xz && tar xvf /root/ocserv-0.8.2.tar.xz && cd ocserv-0.8.2 && ./configure --prefix=/usr --sysconfdir=/etc && make && make install;rm -rf /root/*
+RUN apt-get -y install libpam0g-dev libpam-radius-auth
+ADD pam_ocserv /etc/pam.d/ocserv
 
 ADD ./certs /opt/certs
 RUN certtool --generate-privkey --outfile /opt/certs/ca-key.pem
