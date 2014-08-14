@@ -6,16 +6,28 @@
 ## 简单部署
 在 [安装好 Docker 1.0+](https://gist.github.com/wppurking/55db8651a88425e0f977) 并且正常启动 Docker 后:
 
-* `cd ~;git clone https://github.com/wppurking/ocserv-docker.git` : 将当前 repo 下载, 拥有可调整的 ocserv.conf 配置文件以及 ocpasswd 用户密码文件
-* `docker run -d --privileged -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/udp -p 443:443/tcp wppurking/ocserv`  :  Box 自动下载. ocserv 的一些功能需要 Docker 在 privileged 权限下处理
-* `docker ps -aq | xargs docker logs` : 查看运行日志, 检查是否正常运行(可重复执行).
+* 将当前 repo 下载, 拥有可调整的 ocserv.conf 配置文件以及 ocpasswd 用户密码文件
 
-```
-listening (TCP) on 0.0.0.0:443...
-listening (TCP) on [::]:443...
-listening (UDP) on 0.0.0.0:443...
-listening (UDP) on [::]:443...
-```
+	`$ cd ~;git clone https://github.com/wppurking/ocserv-docker.git`
+* Box 自动下载. ocserv 的一些功能需要 Docker 在 privileged 权限下处理
+
+	```bash
+	1. auth = "plain[/etc/ocserv/ocpasswd]"
+	$ docker run -d --privileged -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/udp -p 443:443/tcp wppurking/ocserv
+	2. auth = "pam"
+	$ docker run -d --privileged -v ~/ocserv-docker/ocserv:/etc/ocserv \
+	  -e radius_server=1.2.3.4 -e radius_secret=radpass --net=host wppurking/ocserv
+	```
+* 查看运行日志, 检查是否正常运行(可重复执行).
+
+	```
+	$ docker ps -aq | xargs docker logs
+
+	listening (TCP) on 0.0.0.0:443...
+	listening (TCP) on [::]:443...
+	listening (UDP) on 0.0.0.0:443...
+	listening (UDP) on [::]:443...
+	```
 
 ## 使用
 * 初始化好的两个账户:  wyatt:616  holly:525
@@ -49,5 +61,5 @@ listening (UDP) on [::]:443...
 
 
 ## 问题
-1. 在某一个台湾的 VPS 上 Docker 无法正常运行, 报告: `/lib/x86_64-linux-gnu/libc.so.6 invalid EFL header` 我暂时不知道如何解决 - -|| 
+1. 在某一个台湾的 VPS 上 Docker 无法正常运行, 报告: `/lib/x86_64-linux-gnu/libc.so.6 invalid EFL header` 我暂时不知道如何解决 - -||
 2. 在某台 Linux Kernal 为 `Linux xxxx 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux` 的服务器上, 无论 Docker run 哪一个 Box 都无法正常运行. Docker 的问题我现在还无能无力啊... [错误信息](https://gist.github.com/wppurking/0b81adefd050ace97332)

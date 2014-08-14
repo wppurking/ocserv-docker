@@ -1,0 +1,5 @@
+# PAM Configuration for OpenConnect Server
+# Created by tony, 11/13/13
+# This is designed to work with RADIUS PAM Module
+auth    required        /lib/security/pam_radius_auth.so
+account    required        /lib/security/pam_radius_auth.so
