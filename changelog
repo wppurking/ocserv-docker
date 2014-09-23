@@ -2,6 +2,9 @@
  * 自动下载最新版本的 ocserv (thanks @catatnight)
  * 自动创建 /dev/net/tun  (thanks @hongqn)
 
+2014.08.14
+ * 取消 wppurking/ocserv-base-lib, 改为由 docker hub 来进行 automate build
+
 2014.08.11
  * 新增加 wppurking/ocserv-base-lib(base-lib), 仅仅将 ocserv 所需要的 lib 文件安装(依赖 Ubuntu:latest);
  * 将生成 certs 所需要的 teamplate(Country 啊, Domain 啊等等信息) 抽取出来
