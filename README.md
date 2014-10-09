@@ -32,13 +32,13 @@ listening (UDP) on [::]:443...
 
 
 ## 用户名
-用户名以及密码信息作为配置文件没有放在 Box 中, 而是通过 Volume 在运行时挂在进去. 所以可以通过 `ocpasswd` 重新生成自己需要的用户名密码, 修改 ocserv/ocpasswd 中的内容即可.
+为了使新手能够最快的使用上 AnyConnect (也方便我自己同一设备能方便的链接多个不同地域的 VPS) 我预先设置了两个初始化的账号密码, 但同时将用于提供账号密码的 `ocserv/ocpasswd` 文件放在 Box 外面, 运行 Container 时使用 Volume 挂在进去, 这样方便熟悉 Docker 的用户能够方便的 使用 `ocpasswd` 命令修改或者重新生成自己的用户密码.
 
 
 ## 信息
 * Box Size: 384.6 MB   (拿空间换时间, 国外网络快)
 * 基础 Box: ubuntu:latest   (192.7 MB)
-* 测试过的环境:  Linode 1G Ubuntu 14.04 LTS, Vultr 768MB Ubuntu 14.04 LTS
+* 测试过的环境:  [Linode 1G Ubuntu 14.04 LTS]  [Vultr 768MB Ubuntu 14.04 LTS]  [DigitalOcean 512MB Docker 1.2.0 on Ubuntu 14.04]
 
 ## Refs
 * [ocserv 0.8.2 Manual](http://www.infradead.org/ocserv/manual.html)
