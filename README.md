@@ -38,7 +38,10 @@ listening (UDP) on [::]:443...
 ## 信息
 * Box Size: 384.6 MB   (拿空间换时间, 国外网络快)
 * 基础 Box: ubuntu:latest   (192.7 MB)
-* 测试过的环境:  [Linode 1G Ubuntu 14.04 LTS]  [Vultr 768MB Ubuntu 14.04 LTS]  [DigitalOcean 512MB Docker 1.2.0 on Ubuntu 14.04]
+* 测试过的环境: 
+  [Linode 1G Ubuntu 14.04 LTS]
+  [Vultr 768MB Ubuntu 14.04 LTS]
+  [DigitalOcean 512MB Docker 1.2.0 on Ubuntu 14.04]
 
 ## Refs
 * [ocserv 0.8.2 Manual](http://www.infradead.org/ocserv/manual.html)
