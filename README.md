@@ -1,6 +1,8 @@
 ## 用途
 
-因为安装一个 Open Connect 的步骤实在太麻烦了, 特别对于新手, 所以特意参考了 jpetazzo 的 [dockvpn](https://github.com/jpetazzo/dockvpn) 弄了一个 ocserv 的. 有啥问题可以直接 [@wyatt_pan](https://twitter.com/wyatt_pan)
+因为安装一个 Open Connect 的步骤实在太麻烦了, 特别对于新手, 所以特意参考了 jpetazzo 的 [dockvpn](https://github.com/jpetazzo/dockvpn) 弄了一个 ocserv 的. 此项目的原因和一点点介绍可见 [使用 ocserv-docker 享受自由网络](http://wppurking.github.io/2014/10/11/use-ocserv-docker-to-enjoy-freedom-internet.html)
+
+有啥问题可以直接 [@wyatt_pan](https://twitter.com/wyatt_pan)
 
 
 ## 简单部署
