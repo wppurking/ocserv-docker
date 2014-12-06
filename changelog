@@ -1,3 +1,7 @@
+2014.12.06
+ * 指定所使用的 container 为 [ubuntu:trusty], 避免因使用 [ubuntu] 将所有 container 都下载下来
+ * 解决在编译安装 ocserv 0.8.8 时, libtalloc, libhttp-parser not found 问题; [libprotobuf-c was not found 还未>解决]
+
 2014.09.23
  * 自动下载最新版本的 ocserv (thanks @catatnight)
  * 自动创建 /dev/net/tun  (thanks @hongqn)
