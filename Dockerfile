@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:trusty
 MAINTAINER Wyatt Pan <wppurking@gmail.com>
 
 RUN apt-get update
