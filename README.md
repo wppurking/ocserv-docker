@@ -55,5 +55,29 @@ listening (UDP) on [::]:443...
 
 
 ## 问题
-1. 在某一个台湾的 VPS 上 Docker 无法正常运行, 报告: `/lib/x86_64-linux-gnu/libc.so.6 invalid EFL header` 我暂时不知道如何解决 - -|| 
-2. 在某台 Linux Kernal 为 `Linux xxxx 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux` 的服务器上, 无论 Docker run 哪一个 Box 都无法正常运行. Docker 的问题我现在还无能无力啊... [错误信息](https://gist.github.com/wppurking/0b81adefd050ace97332)
+1. 在某台 Linux Kernal 为 `Linux xxxx 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux` 的服务器上, 无论 Docker run 哪一个 Box 都无法正常运行. Docker 的问题我现在还无能无力啊... [错误信息](https://gist.github.com/wppurking/0b81adefd050ace97332)
+2. 拥有官方的 libhttp-parser-dev 但仍然 local http-parser: no
+3. Radius, GSSAPI, LZ4 没有编译进去
+
+
+## Dep on
+```
+  PAM auth backend:     yes
+  Radius auth backend:  no  
+  GSSAPI auth backend:  no
+  Anyconnect compat:    yes
+  TCP wrappers:         yes
+  systemd:              no
+  (socket activation)
+  seccomp:              yes
+  Compression:          yes
+  LZ4 compression:      no
+  readline:             yes
+  libnl3:               yes
+  glibc (sha2crypt):    yes
+  local talloc:         yes
+  local protobuf-c:     yes
+  local PCL library:    no
+  local libopts:        no
+  local http-parser:    no
+```
