@@ -1,3 +1,9 @@
+2015.03.24
+ * 升级到 ocserv 0.10.1 并且更换调整配置文件. (应该兼容老版本, 没大改变) [wppurking/ocserv 已更新]
+ * 默认开打 talloc 编译参数
+ * 默认开启 LZS 压缩(LZ4 没有, 如果是 HTTP 都 Gzip 压缩过的请求有多大效果呢?待测试)
+ * 修复自动下载部署脚本无法解析 0.10.1 这样两位数字版本好的问题
+ 
 2014.12.06
  * 指定所使用的 container 为 [ubuntu:trusty], 避免因使用 [ubuntu] 将所有 container 都下载下来
  * 解决在编译安装 ocserv 0.8.8 时, libtalloc, libhttp-parser not found 问题; [libprotobuf-c was not found 还未>解决]
