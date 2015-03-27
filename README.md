@@ -36,6 +36,18 @@ listening (UDP) on [::]:443...
 ## 用户名
 为了使新手能够最快的使用上 AnyConnect (也方便我自己同一设备能方便的链接多个不同地域的 VPS) 我预先设置了两个初始化的账号密码, 但同时将用于提供账号密码的 `ocserv/ocpasswd` 文件放在 Box 外面, 运行 Container 时使用 Volume 挂在进去, 这样方便熟悉 Docker 的用户能够方便的 使用 `ocpasswd` 命令修改或者重新生成自己的用户密码.
 
+提供一个非常简单的更换密码操作, 复制命令就好了(建立在按照上面的操作基础上哈):
+### 新添加用户
+```
+$> docker exec -it $(docker ps -a | grep vpn_run | awk '{print $1}') ocpasswd yourname
+$> Enter password:
+$> Re-enter password:
+```
+这个的原理是借用 docker 运行中的 container , 在其里面运行 `ocpasswd` 改变 Volumn 进去的 `./ocserv/ocpasswd` 文件内容, 所以当你运行完这行命令, 本机(非 container 中)的 `./ocserv/ocpasswd` 的文件内容会真实发生变化
+
+### 清理掉预设的两个用户名
+直接打开 `./ocserv/ocpasswd` 删掉 wyatt/holly 开头的两行就好了. 
+
 
 ## 信息
 * Box Size: 384.6 MB   (拿空间换时间, 国外网络快)
