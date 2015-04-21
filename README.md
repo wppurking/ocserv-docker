@@ -31,6 +31,7 @@ listening (UDP) on [::]:443...
 因为是构建一个独立的 box 进行分发, 方便快速部署一个 ocserv, 所以将证书, 密钥, 用户都集成在里面了, 此刻方便使用. 如果对于有担心的, 可以 `docker run -t -i wppurking/ocserv bash` 进入到 box 中使用 `certtool` 重新进行处理, 具体操作步骤参考 [[原创]linode vps debian7.5安装配置ocserv(OpenConnect server)](http://luoqkk.com/linode-vps-debian-installation-and-configuration-ocserv-openconnect-server.html)
 
 证书是在 Docker Build 的过程中自动生成的, 其生成的目的地为 `/opt/certs`
+[成功更换 certs 的例子](https://twitter.com/douglas_lee/status/590245251257737216)
 
 
 ## 用户名
