@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM quay.io/njuaplusplus/ubuntu:14.04
 MAINTAINER Wyatt Pan <wppurking@gmail.com> Aplusplus <njuaplusplus at googlemail>
 
 RUN apt-get update \
