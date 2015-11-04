@@ -3,19 +3,18 @@ ocs:
   image: quay.io/njuaplusplus/ocs
   privileged: true
   restart: always
+  environment:
+    - CA_CN=OCS CA
+    - CA_ORG=OCS ORG
+    - SERVER_CN=www.example.com
+    - SERVER_ORG=server org
+    - USER_CN=user
+    - USER_UNIT=user unit
+    - P12_NAME=userp12
+    - P12_PASS=123456
   volumes:
-    - /myapps/ocs/ocserv/:/etc/ocserv/
-    - /myapps/ocs/certs/:/opt/certs/
-  ports:
-    - "443:443"
-    - "443:443/udp"
-ocsall:
-  image: quay.io/njuaplusplus/ocs
-  privileged: true
-  restart: always
-  volumes:
-    - /myapps/ocs.all/ocserv/:/etc/ocserv/
-    - /myapps/ocs.all/certs/:/opt/certs/
+    - /root/docker-ocserv/ocserv/:/etc/ocserv/
+    - /root/docker-ocserv/certs/:/opt/certs/
   ports:
     - "10443:443"
     - "10443:443/udp"
