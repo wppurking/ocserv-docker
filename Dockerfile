@@ -1,5 +1,5 @@
 FROM quay.io/njuaplusplus/ubuntu:14.04
-MAINTAINER Wyatt Pan <wppurking@gmail.com> Aplusplus <njuaplusplus at googlemail>
+MAINTAINER Aplusplus <njuaplusplus at googlemail>
 
 RUN apt-get update \
  && apt-get install -y build-essential libwrap0-dev libpam0g-dev \
@@ -19,17 +19,14 @@ RUN apt-get update \
  && rm -rf /root/index.html && rm -rf ocserv-* \
  && rm -rf /var/lib/apt/lists/*
 
-ADD ./certs /opt/certs
-RUN certtool --generate-privkey --outfile /opt/certs/ca-key.pem \
- && certtool --generate-self-signed --load-privkey /opt/certs/ca-key.pem \
-      --template /opt/certs/ca.tmpl --outfile /opt/certs/ca-cert.pem \
- && certtool --generate-privkey --outfile /opt/certs/server-key.pem \
- && certtool --generate-certificate --load-privkey /opt/certs/server-key.pem \
-      --load-ca-certificate /opt/certs/ca-cert.pem --load-ca-privkey /opt/certs/ca-key.pem \
-      --template /opt/certs/server.tmpl --outfile /opt/certs/server-cert.pem
+COPY certs/ /tmp/certs/
 
-ADD ./bin /usr/local/bin
-RUN chmod a+x /usr/local/bin/*
+COPY entrypoint.sh /sbin/entrypoint.sh
+RUN chmod 755 /sbin/entrypoint.sh
 
 WORKDIR /etc/ocserv
-CMD ["vpn_run"]
+
+EXPOSE 443
+
+ENTRYPOINT ["/sbin/entrypoint.sh"]
+CMD ["ocserv", "-c", "/etc/ocserv/ocserv.conf", "-f"]
