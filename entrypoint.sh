@@ -14,17 +14,17 @@ P12_PASS="${P12_PASS:-ocserv}"
 
 # Generate certs
 
-if [ ! -d /opt/ocserv ]; then
+if [ ! -d /opt/certs/ ]; then
     echo "Error:"
-    echo "    You must have the /opt/ocserv volum mounted!"
+    echo "    You must have the /opt/certs/ volum mounted!"
     exit 1
 fi
 
-if [ ! -f /opt/ocserv/server-key.pem ] || [ ! -f /etc/ocserv/server-cert.pem ]; then
+if [ ! -f /opt/certs/server-key.pem ] || [ ! -f /etc/certs/server-cert.pem ]; then
 
     echo "Generating certs"
 
-    cp /tmp/certs/* /opt/ocserv
+    cp /tmp/certs/* /opt/certs/
     sed -i -e 's/{{CA_CN}}/'"${CA_CN}"'/g' /opt/certs/ca.tmpl
     sed -i -e 's/{{CA_ORG}}/'"${CA_ORG}"'/g' /opt/certs/ca.tmpl
     sed -i -e 's/{{SERVER_CN}}/'"${SERVER_CN}"'/g' /opt/certs/server.tmpl
