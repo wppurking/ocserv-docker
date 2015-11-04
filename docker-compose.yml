@@ -1,0 +1,22 @@
+###### ocs v ######
+ocs:
+  image: quay.io/njuaplusplus/ocs
+  privileged: true
+  restart: always
+  volumes:
+    - /myapps/ocs/ocserv/:/etc/ocserv/
+    - /myapps/ocs/certs/:/opt/certs/
+  ports:
+    - "443:443"
+    - "443:443/udp"
+ocsall:
+  image: quay.io/njuaplusplus/ocs
+  privileged: true
+  restart: always
+  volumes:
+    - /myapps/ocs.all/ocserv/:/etc/ocserv/
+    - /myapps/ocs.all/certs/:/opt/certs/
+  ports:
+    - "10443:443"
+    - "10443:443/udp"
+###### End of  ocs v ######
