@@ -12,6 +12,8 @@ USER_UNIT="${USER_UNIT:-user unit}"
 P12_NAME="${P12_NAME:-userp12}"
 P12_PASS="${P12_PASS:-ocserv}"
 
+ROUTE_ALL="${ROUTE_ALL:-false}"
+
 # Generate certs
 
 if [ ! -d /opt/certs/ ]; then
@@ -59,7 +61,11 @@ fi
 
 if [ ! -f /etc/ocserv/ocserv.conf ]; then
     echo "No ocserv.conf found! Downloading......"
-    wget https://raw.githubusercontent.com/njuaplusplus/docker-ocserv/master/ocserv/ocserv.conf -O /etc/ocserv/ocserv.conf
+    if [ "$ROUTE_ALL" = true ]; then
+        wget https://raw.githubusercontent.com/njuaplusplus/docker-ocserv/master/ocserv/ocserv_all.conf -O /etc/ocserv/ocserv.conf
+    else
+        wget https://raw.githubusercontent.com/njuaplusplus/docker-ocserv/master/ocserv/ocserv.conf -O /etc/ocserv/ocserv.conf
+    fi
     echo "ocserv.conf downloaded"
 fi
 

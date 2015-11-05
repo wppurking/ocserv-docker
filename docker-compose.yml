@@ -12,6 +12,7 @@ ocs:
     - USER_UNIT=user unit
     - P12_NAME=userp12
     - P12_PASS=123456
+    - ROUTE_ALL=false
   volumes:
     - /root/docker-ocserv/ocserv/:/etc/ocserv/
     - /root/docker-ocserv/certs/:/opt/certs/
