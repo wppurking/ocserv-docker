@@ -51,6 +51,18 @@ EOF
     echo "Certs generated"
 fi
 
+if [ ! -d /etc/ocserv/ ]; then
+    echo "Error:"
+    echo "    You must have the /etc/ocserv/ volum mounted!"
+    exit 1
+fi
+
+if [ ! -f /etc/ocserv/ocserv.conf ]; then
+    echo "No ocserv.conf found! Downloading......"
+    wget https://raw.githubusercontent.com/njuaplusplus/docker-ocserv/master/ocserv/ocserv.conf -O /etc/ocserv/ocserv.conf
+    echo "ocserv.conf downloaded"
+fi
+
 #
 # Run the OpenConnect server normally
 #
