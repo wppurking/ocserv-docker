@@ -22,7 +22,7 @@ if [ ! -d /opt/certs/ ]; then
     exit 1
 fi
 
-if [ ! -f /opt/certs/server-key.pem ] || [ ! -f /etc/certs/server-cert.pem ]; then
+if [ ! -f /opt/certs/server-key.pem ] || [ ! -f /opt/certs/server-cert.pem ]; then
 
     echo "Generating certs"
 
