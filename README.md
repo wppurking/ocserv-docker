@@ -68,29 +68,4 @@ $> Re-enter password:
 
 
 ## 问题
-1. 在某台 Linux Kernal 为 `Linux xxxx 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux` 的服务器上, 无论 Docker run 哪一个 Box 都无法正常运行. Docker 的问题我现在还无能无力啊... [错误信息](https://gist.github.com/wppurking/0b81adefd050ace97332)
-2. 拥有官方的 libhttp-parser-dev 但仍然 local http-parser: no
-3. Radius, GSSAPI, LZ4 没有编译进去
-
-
-## Dep on
-```
-  PAM auth backend:     yes
-  Radius auth backend:  no  
-  GSSAPI auth backend:  no
-  Anyconnect compat:    yes
-  TCP wrappers:         yes
-  systemd:              no
-  (socket activation)
-  seccomp:              yes
-  Compression:          yes
-  LZ4 compression:      no
-  readline:             yes
-  libnl3:               yes
-  glibc (sha2crypt):    yes
-  local talloc:         yes
-  local protobuf-c:     yes
-  local PCL library:    no
-  local libopts:        no
-  local http-parser:    no
-```
+* 大家最近连接上 ocserv 就断开, 我猜测因为有比较多的人使用同一个 Docker Image 使得太多人使用同一个证书, 然后我做了处理, 至少我的几台服务器已经正常, 不会断开了. 请大家重新执行以下命令下载最新的 image, 如果有条件自己 build 以下或者使用自己的证书即可.
