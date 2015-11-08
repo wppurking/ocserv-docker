@@ -51,8 +51,8 @@ $> Re-enter password:
 
 
 ## 信息
-* Box Size: 384.6 MB   (拿空间换时间, 国外网络快)
-* 基础 Box: ubuntu:latest   (192.7 MB)
+* Box Size: 164 MB   (原来是 380+ MB, 基础镜像缩减)
+* 基础 Box: ubuntu:trusty
 * 测试过的环境: 
   * [Linode 1G Ubuntu 14.04 LTS]
   * [Vultr 768MB Ubuntu 14.04 LTS]
