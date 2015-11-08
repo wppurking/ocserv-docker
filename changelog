@@ -1,3 +1,9 @@
+2015.11.08
+ * 使用 no-route, 并且扩展到 200 条 (thanks https://github.com/CNMan/ocserv-cn-no-route)
+ * 更新 ocserv 配置文件适应 ocserv 0.10.9
+ * 调整 Dockerfile 以加速 docker build 的速度
+ * Building Image 过程中, 生成随机的 certs 信息
+
 2015.03.27
  * 更新文档, 增加一行命令添加自定义用户名密码的
 
