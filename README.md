@@ -22,7 +22,8 @@ listening (UDP) on [::]:443...
 ## 构建使用
 构建自己本地的 images, 计算自己的 ssl key (自签名)
 
-* `cd ~ && git clone https://github.com/wppurking/ocserv-docker.git && cd ocserv-docker && docker build -t ocserv-docker .` : 将当前 repo 下载, 拥有可调整的 ocserv.conf 配置文件以及 ocpasswd 用户密码文件
+* `cd ~ && git clone https://github.com/wppurking/ocserv-docker.git` : 将当前 repo 下载, 拥有可调整的 ocserv.conf 配置文件以及 ocpasswd 用户密码文件
+* `cd ~/ocserv-docker && docker build --no-cache -t ocserv-docker .` : 在 ocserv-docker 目录下, 重新构建全新的镜像使用. (例: 版本更新, 重新生成证书)
 * `docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp ocserv-docker`  :  Box 自动下载. ocserv 的一些功能需要 Docker 在 privileged 权限下处理
 * `docker logs ocserv-docker` : 查看运行日志, 检查是否正常运行(可重复执行).
 

@@ -1,3 +1,9 @@
+2016.07.04
+ * 调整编译脚本, 增加 lz4 支持
+ * 更新 no-route
+ * no-route 本地局域网 192.168.0.0 地址. 方便本地的开发
+ * 更新文档, 增加 build 的使用
+
 2015.11.08
  * 使用 no-route, 并且扩展到 200 条 (thanks https://github.com/CNMan/ocserv-cn-no-route)
  * 更新 ocserv 配置文件适应 ocserv 0.10.9
