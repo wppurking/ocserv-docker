@@ -18,5 +18,4 @@ iptables -t nat -A POSTROUTING -j MASQUERADE
 iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu 
 
 # run it
-#ocserv -c /etc/ocserv/ocserv.conf -f -d 1
 ocserv -c /etc/ocserv/ocserv.conf -f $@
