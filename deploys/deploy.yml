@@ -20,6 +20,7 @@
 
   - name: Stop old ocserv
     shell: docker rm -vf {{ vpn_name }}
+    ignore_errors: true
 
   - name: run new ocserv
     shell: docker run -d --privileged --name {{ vpn_name }} -v ~/ocserv-docker/ocserv:/etc/ocserv -p {{ port }}:443/tcp {{ vpn_name }}
