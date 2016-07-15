@@ -1,5 +1,5 @@
 ---
-- hosts: eca
+- hosts: hk3
   name: recompile and run ocserv
   vars:
     vpn_name: ocserv-docker

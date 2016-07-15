@@ -1,5 +1,5 @@
 ---
-- hosts: es-erp
+- hosts: hk3
   name: restart ocserv
   vars:
     vpn_name: ocserv-docker
