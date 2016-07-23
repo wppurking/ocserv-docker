@@ -15,7 +15,7 @@
     shell: docker build --no-cache -t {{ vpn_name }} .  chdir=~/ocserv-docker
 
   - name: delete <none> img
-    shell: docker images | fgrep '<none>' | xargs docker rmi
+    shell: docker images | fgrep '<none>' | awk '{print $ 3}'  | xargs docker rmi
     ignore_errors: true
 
   - name: Stop old ocserv
