@@ -19,12 +19,12 @@ listening (UDP) on 0.0.0.0:443...
 listening (UDP) on [::]:443...
 ```
 
-## 构建使用
-构建自己本地的 images, 计算自己的 ssl key (自签名)
+## 构建部署
+构建自己本地的 images, 计算自己的 ssl key (自签名). 可以避免 N 多人使用一个证书的问题.
 
 * `cd ~ && git clone https://github.com/wppurking/ocserv-docker.git` : 将当前 repo 下载, 拥有可调整的 ocserv.conf 配置文件以及 ocpasswd 用户密码文件
 * `cd ~/ocserv-docker && docker build --no-cache -t ocserv-docker .` : 在 ocserv-docker 目录下, 重新构建全新的镜像使用. (例: 版本更新, 重新生成证书)
-* `docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp ocserv-docker`  :  Box 自动下载. ocserv 的一些功能需要 Docker 在 privileged 权限下处理
+* `docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp ocserv-docker`  :  ocserv 的一些功能需要 Docker 在 privileged 权限下处理
 * `docker logs ocserv-docker` : 查看运行日志, 检查是否正常运行(可重复执行).
 
 ## 使用
@@ -41,6 +41,7 @@ listening (UDP) on [::]:443...
 证书是在 Docker Build 的过程中自动生成的, 其生成的目的地为 `/opt/certs`
 [成功更换 certs 的例子](https://twitter.com/douglas_lee/status/590245251257737216)
 
+TODO: 自签名客户端证书登陆
 
 ## 用户名
 为了使新手能够最快的使用上 AnyConnect (也方便我自己同一设备能方便的链接多个不同地域的 VPS) 我预先设置了两个初始化的账号密码, 但同时将用于提供账号密码的 `ocserv/ocpasswd` 文件放在 Box 外面, 运行 Container 时使用 Volume 挂在进去, 这样方便熟悉 Docker 的用户能够方便的 使用 `ocpasswd` 命令修改或者重新生成自己的用户密码.
