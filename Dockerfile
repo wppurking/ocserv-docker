@@ -1,8 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER Wyatt Pan <wppurking@gmail.com>
 
-#ADD ./certs /opt/certs
-VOLUME ./certs /opt/certs
+ADD ./certs /opt/certs
 ADD ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 WORKDIR /etc/ocserv
@@ -16,13 +15,14 @@ RUN cd /root && wget https://github.com/Cyan4973/lz4/releases/latest -o lz4.html
 	&& cd /root && wget ftp://ftp.infradead.org/pub/ocserv/ocserv-$ocserv_version.tar.xz && tar xvf ocserv-$ocserv_version.tar.xz \
 	&& cd ocserv-$ocserv_version && sed -i 's/define DEFAULT_CONFIG_ENTRIES 96/define DEFAULT_CONFIG_ENTRIES 200/g' src/vpn.h  \
     && ./configure --prefix=/usr --sysconfdir=/etc --with-local-talloc && make && make install \
-	&& rm -rf /root/* \
+	&& rm -rf /root/*
 
-    && ca_cn=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed 's/Your desired authority name/$ca_cn/g' /opt/certs/ca-tmp" \
-    && ca_org=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed 's/Your desired orgnization name/$ca_org/g' /opt/certs/ca-tmp" \
-    && serv_domain=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed 's/yourdomainname/$serv_domain/g' /opt/certs/serv-tmp" \
-    && serv_org=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed 's/Your desired orgnization name/$serv_org/g' /opt/certs/serv-tmp" \
-    && user_id=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed 's/user/$user_id/g' /opt/certs/user-tmp" \
+RUN cd /opt/certs && ls \
+    && ca_cn=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed -i 's/Your desired authority name/$ca_cn/g' /opt/certs/ca-tmp" \
+    && ca_org=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed -i 's/Your desired orgnization name/$ca_org/g' /opt/certs/ca-tmp" \
+    && serv_domain=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c -i "sed 's/yourdomainname/$serv_domain/g' /opt/certs/serv-tmp" \
+    && serv_org=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) && bash -c "sed -i 's/Your desired orgnization name/$serv_org/g' /opt/certs/serv-tmp" \
+    && user_id=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-10} | head -n 1) && bash -c "sed -i 's/user/$user_id/g' /opt/certs/user-tmp" \
 
     # generate [ca-key.pem] -> ca-cert.pem [ca-key]
     && certtool --generate-privkey --outfile /opt/certs/ca-key.pem && certtool --generate-self-signed --load-privkey /opt/certs/ca-key.pem --template /opt/certs/ca-tmp --outfile /opt/certs/ca-cert.pem \
@@ -35,4 +35,4 @@ RUN cd /root && wget https://github.com/Cyan4973/lz4/releases/latest -o lz4.html
 
 CMD ["vpn_run"]
 
-
+# docker run --rm ocserv-key cat /opt/certs/user.p12 > user.p12
