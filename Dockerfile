@@ -35,5 +35,5 @@ RUN cd /opt/certs && ls \
 
 CMD ["vpn_run"]
 
+# extra user.p12 from container
 # docker run --rm ocserv-key cat /opt/certs/user.p12 > user.p12
-# docker run --rm ocserv-key cat /opt/certs/ca-tmp
