@@ -1,0 +1,6 @@
+cn = "user"
+unit = "user"
+uid = "user"
+expiration_days = 3650
+signing_key
+tls_www_client
