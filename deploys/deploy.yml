@@ -24,3 +24,6 @@
 
   - name: run new ocserv
     shell: docker run -d --privileged --name {{ vpn_name }} -v ~/ocserv-docker/ocserv:/etc/ocserv -p {{ port }}:443/tcp {{ vpn_name }}
+
+  - name: move user.p12 to nginx share place
+    shell: docker run --rm ocserv-docker cat /opt/certs/user.p12 > /usr/share/nginx/html/user.p12

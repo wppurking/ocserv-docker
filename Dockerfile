@@ -34,6 +34,3 @@ RUN cd /opt/certs && ls \
     && openssl pkcs12 -export -inkey /opt/certs/user-key.pem -in /opt/certs/user-cert.pem -certfile /opt/certs/ca-cert.pem -out /opt/certs/user.p12 -passout pass:616
 
 CMD ["vpn_run"]
-
-# extra user.p12 from container
-# docker run --rm ocserv-key cat /opt/certs/user.p12 > user.p12
