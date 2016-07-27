@@ -86,4 +86,4 @@ $> Re-enter password:
 ![AnyConnect](http://77g8qz.com1.z0.glb.clouddn.com/anyconnect.png?imageView2/2/w/300)
 
 ### 如果你网络好的话, 那么可以看到如下的情况 ( [7.1MB/s](https://toolstud.io/data/bandwidth.php?compare=network&speed=7.1&speed_unit=MB%2Fs) 的峰值, 56.8 Mbps) :
-![AnyConnect Speed](http://77g8qz.com1.z0.glb.clouddn.com/anyconnect-top.jpg?imageView2/0/w/1600/q/100)
+![AnyConnect Speed](http://77g8qz.com1.z0.glb.clouddn.com/anyconnect-top.jpg?imageView2/0/h/400/q/100)
