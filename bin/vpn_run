@@ -4,6 +4,10 @@
 # Run the OpenConnect server normally
 #
 
+# start dnsmasq
+dnsmasq -C /usr/local/etc/dnsmasq.conf
+
+
 # open ipv4 ip forward
 sysctl -w net.ipv4.ip_forward=1
 
