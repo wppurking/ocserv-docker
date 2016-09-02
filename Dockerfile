@@ -27,7 +27,6 @@ RUN mkdir -p /temp && cd /temp \
     && unzip master.zip \
     && cd dnsmasq-china-list-master \
     && cp *.conf /etc/dnsmasq.d/ \
-    && bash dnsmasq-update-china-list cnnic \
     && cd / && rm -rf /temp
 
 # configuration lz4
