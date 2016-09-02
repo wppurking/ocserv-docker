@@ -5,7 +5,7 @@
 #
 
 # start dnsmasq
-dnsmasq -C /dnsmasq.conf
+dnsmasq -C /usr/local/etc/dnsmasq.conf
 
 
 # open ipv4 ip forward

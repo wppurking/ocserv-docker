@@ -3,7 +3,7 @@ MAINTAINER Wyatt Pan <wppurking@gmail.com>
 
 ADD ./certs /opt/certs
 ADD ./bin /usr/local/bin
-ADD dnsmasq.conf /dnsmasq.conf
+ADD dnsmasq.conf /usr/local/etc/dnsmasq.conf
 RUN chmod a+x /usr/local/bin/*
 WORKDIR /etc/ocserv
 
