@@ -37,7 +37,7 @@ RUN mkdir -p /temp && cd /temp \
     && wget https://github.com/lz4/lz4/archive/$lz4_version.tar.gz \
     && tar xvf $lz4_version.tar.gz \
     && cd lz4-$lz4_suffix \
-    && make install\
+    && make install \
     && ln -sf /usr/local/lib/liblz4.* /usr/lib/ \
     && cd / && rm -rf /temp
 
