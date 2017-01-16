@@ -31,11 +31,12 @@ RUN mkdir -p /temp && cd /temp \
 
 # configuration lz4
 RUN mkdir -p /temp && cd /temp \
-    && wget https://github.com/Cyan4973/lz4/releases/latest -O lz4.html \
-    && export lz4_version=$(cat lz4.html | grep -m 1 -o 'r[0-9][0-9][0-9]') \
-    && wget https://github.com/Cyan4973/lz4/archive/$lz4_version.tar.gz \
+    && wget https://github.com/lz4/lz4/releases/latest -O lz4.html \
+    && export lz4_version=$(cat lz4.html | grep -m 1 -o 'v[0-9]\.[0-9]\.[0-9]') \
+    && export lz4_suffix=$(cat lz4.html | grep -m 1 -o '[0-9]\.[0-9]\.[0-9]') \
+    && wget https://github.com/lz4/lz4/archive/$lz4_version.tar.gz \
     && tar xvf $lz4_version.tar.gz \
-    && cd lz4-$lz4_version \
+    && cd lz4-$lz4_suffix \
     && make install \
     && ln -sf /usr/local/lib/liblz4.* /usr/lib/ \
     && cd / && rm -rf /temp
