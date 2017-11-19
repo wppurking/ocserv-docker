@@ -41,7 +41,7 @@ RUN mkdir -p /temp && cd /temp \
 
 # configuration ocserv
 RUN mkdir -p /temp && cd /temp \
-    && wget http://ocserv.gitlab.io/www/download.html \
+    && wget https://ocserv.gitlab.io/www/download.html \
     && export ocserv_version=$(cat download.html | grep -o '[0-9]*\.[0-9]*\.[0-9]*') \
     && wget ftp://ftp.infradead.org/pub/ocserv/ocserv-$ocserv_version.tar.xz \
     && tar xvf ocserv-$ocserv_version.tar.xz \
