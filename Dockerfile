@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:latest
 MAINTAINER Wyatt Pan <wppurking@gmail.com>
 
 ADD ./certs /opt/certs
